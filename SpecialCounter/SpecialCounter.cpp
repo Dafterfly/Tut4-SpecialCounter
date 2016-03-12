@@ -12,14 +12,22 @@ SpecialCounter::~SpecialCounter()
 
 void SpecialCounter::start(int start)
 {
-	startCount = start;
+	startVal = start;
 }
 
 void SpecialCounter::stop(int stop)
 {
-	stopCount = stop;
+	stopVal = stop;
 }
 
+void SpecialCounter::stepInc(int stepSize)
+{
+	incVal = stepSize;
+}
 
+void SpecialCounter::stepDec(int stepSize)
+{
+	decVal = stepSize;
+}
 
 
