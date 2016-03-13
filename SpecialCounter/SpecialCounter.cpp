@@ -1,4 +1,7 @@
 #include "SpecialCounter.h"
+#include <iostream>;
+
+using namespace std;
 
 
 SpecialCounter::SpecialCounter()
@@ -8,6 +11,21 @@ SpecialCounter::SpecialCounter()
 
 SpecialCounter::~SpecialCounter()
 {
+}
+
+int SpecialCounter::getStartVal()
+{
+	return startVal;
+}
+
+int SpecialCounter::getStopVal()
+{
+	return stopVal;
+}
+
+int SpecialCounter::getCount()
+{
+	return count;
 }
 
 void SpecialCounter::start(int start)
@@ -58,6 +76,16 @@ SpecialCounter SpecialCounter::operator--(int)
 	return duplicate;
 }
 
+int main()
+{
+	SpecialCounter testCounter;
 
+	cout << "default counter:" << endl;
+	int i;
+	
+	for (int i = testCounter.startVal; )
+
+	return 0;
+}
 
 
