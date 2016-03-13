@@ -13,7 +13,9 @@ public:
 	~SpecialCounter();
 	int getStartVal();
 	int getStopVal();
-	int getCount();
+	int getCount(); 
+	int getIncVal();
+	int getDecVal();
 	void start(int start);
 	void stop(int stop);
 	void stepInc(int stepSize);

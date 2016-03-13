@@ -28,6 +28,16 @@ int SpecialCounter::getCount()
 	return count;
 }
 
+int SpecialCounter::getIncVal()
+{
+	return incVal;
+}
+
+int SpecialCounter::getDecVal()
+{
+	return decVal;
+}
+
 void SpecialCounter::start(int start)
 {
 	if ((start >= 0) && (start <= stopVal))
@@ -83,7 +93,7 @@ int main()
 	cout << "default counter:" << endl;
 	int i;
 	
-	for (int i = testCounter.startVal; )
+	for (int i = testCounter.getStartVal(); i <= testCounter.getStopVal(); )
 
 	return 0;
 }
