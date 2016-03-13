@@ -62,27 +62,27 @@ void SpecialCounter::stepDec(int stepSize)
 
 SpecialCounter SpecialCounter::operator++() 
 {
-	count += 1;
+	startVal += 1;
 	return *this;    
 }
 
 SpecialCounter SpecialCounter::operator--() 
 {
-	count -= 1;
+	stopVal -= 1;
 	return *this;
 }
 
-SpecialCounter SpecialCounter::operator++(int)
+SpecialCounter SpecialCounter::operator++(int temp)
 {
 	SpecialCounter duplicate(*this);
-	count += 1;
+	startVal += 1;
 	return duplicate;              
 }
 
-SpecialCounter SpecialCounter::operator--(int)
+SpecialCounter SpecialCounter::operator--(int temp)
 {
 	SpecialCounter duplicate(*this);
-	count -= 1;
+	stopVal -= 1;
 	return duplicate;
 }
 
@@ -90,11 +90,63 @@ int main()
 {
 	SpecialCounter testCounter;
 
-	cout << "default counter:" << endl;
+	cout << "default counter counting up:" << endl;
 	int i;
 	
-	for (int i = testCounter.getStartVal(); i <= testCounter.getStopVal(); )
+	for (int i = testCounter.getStartVal(); i <= testCounter.getStopVal(); i = i + testCounter.getIncVal())
+	{
+		cout << i << endl;
+	}
 
+
+	//making cutom counter: 
+	testCounter.start(20);
+	testCounter.stop(210);
+	testCounter.stepInc(3);
+	testCounter.stepDec(2);
+
+	cout << "custom counter counting up:" << endl;
+
+	for (int i = testCounter.getStartVal(); i <= testCounter.getStopVal(); i = i + testCounter.getIncVal())
+	{
+		cout << i << endl;
+	}
+
+	cout << "custom counter counting down:" << endl;
+
+	for (int i = testCounter.getStopVal();  i >= testCounter.getStartVal(); i = i - testCounter.getDecVal())
+	{
+		cout << i << endl;
+	}
+
+	// operator overloads:
+	cout << "custom counter ++ prefix:" << endl;
+	for (int i = testCounter.getStartVal(); i <= testCounter.getStopVal(); i = i + testCounter.getIncVal())
+	{
+		++testCounter;
+		cout << testCounter.getStartVal() << endl;
+	}
+
+	cout << "custom counter -- prefix:" << endl;
+	for (int i = testCounter.getStopVal(); i >= testCounter.getStartVal(); i = i - testCounter.getDecVal())
+	{
+		--testCounter;
+		cout << testCounter.getStopVal() << endl;
+	}
+
+	cout << "custom counter ++ postfix:" << endl;
+	for (int i = testCounter.getStartVal(); i <= testCounter.getStopVal(); i = i + testCounter.getIncVal())
+	{
+		testCounter++;
+		cout << testCounter.getStartVal() << endl;
+	}
+
+	cout << "custom counter -- postfix:" << endl;
+	for (int i = testCounter.getStopVal(); i >= testCounter.getStartVal(); i = i - testCounter.getDecVal())
+	{
+		testCounter--;
+		cout << testCounter.getStopVal() << endl;
+	}
 	return 0;
 }
 
